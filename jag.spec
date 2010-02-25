@@ -1,12 +1,17 @@
 Name:		jag
 Version:	0.3.1
 Release:	%mkrel 1
-License:	GPLv3
+# README say "under the GPL" so that quite vague
+License:	GPLv2+
 Group:		Games/Puzzles
 Summary:	An arcade-puzzle 2D game to break all of the target blocks
 URL:		http://jag.xlabsoft.com
 Source:		http://jag.xlabsoft.com/files/%name-%version-src.zip
+
+# adujst path to conform to FHS
+# not sent upstream, too ugly
 Patch0:		%{name}-path.patch
+
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  gcc-c++
 BuildRequires:  libmesagl-devel
