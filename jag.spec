@@ -1,6 +1,6 @@
 Name:		jag
 Version:	0.3.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 # README say "under the GPL" so that quite vague
 License:	GPLv2+
 Group:		Games/Puzzles
