@@ -1,26 +1,26 @@
 Name:		jag
-Version:	0.3.1
-Release:	%mkrel 2
+Version:	0.3.2
+Release:	%mkrel 1
 # README say "under the GPL" so that quite vague
 License:	GPLv2+
 Group:		Games/Puzzles
 Summary:	An arcade-puzzle 2D game to break all of the target blocks
 URL:		http://jag.xlabsoft.com
-Source:		http://jag.xlabsoft.com/files/%name-%version-src.zip
+Source0:	http://jag.xlabsoft.com/files/%{name}-%{version}-src.zip
+Source1:	http://jag.xlabsoft.com/files/%{name}-%{version}-data.zip
 
 # adujst path to conform to FHS
 # not sent upstream, too ugly
-Patch0:		%{name}-path.patch
+Patch0:		jag-0.3.2-path.patch
 
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:  gcc-c++
-BuildRequires:  libmesagl-devel
-BuildRequires:  libSDL-devel
-BuildRequires:  libSDL_mixer-devel
-BuildRequires:  libxrandr-devel
-BuildRequires:  libxrender-devel
-BuildRequires:  qt4-devel
-BuildRequires:  unzip
+BuildRequires:	gcc-c++
+BuildRequires:	libmesagl-devel
+BuildRequires:	SDL-devel
+BuildRequires:	SDL_mixer-devel
+BuildRequires:	libxrandr-devel
+BuildRequires:	libxrender-devel
+BuildRequires:	qt4-devel
+BuildRequires:	unzip
 
 %description
 JAG is a free and opensource arcade-puzzle 2D game.
@@ -40,20 +40,22 @@ pieces of the same type, you're also increasing bonus counters. If you will
 collect 500 and more items, you can remove all the same items from the field.
 
 %prep
-%setup -q -n %name-%version-src
+%setup -q -n %{name}-%{version}-src -a1
 %patch0 -p1
+%__mv %{name}-%{version}-data/data .
+%__rm -rf %{name}-%{version}-data
 
 %build
 %qmake_qt4 Game.pro
 %make
 
-cat > %name.desktop <<EOF
+%__cat > %{name}.desktop <<EOF
 [Desktop Entry]
 Name=JAG
 GenericName=Arcade-puzzle 2D game
-Comment=%summary
-Exec=%name
-Icon=%_liconsdir/%name
+Comment=%{summary}
+Exec=%{name}
+Icon=%{_liconsdir}/%{name}
 Type=Application
 StartupNotify=false
 Categories=Game;LogicGame;
@@ -61,22 +63,22 @@ Terminal=false
 EOF
 
 %install
-rm -rf %buildroot
-%makeinstall INSTALL_ROOT=%buildroot
+%__rm -rf %{buildroot}
+%makeinstall INSTALL_ROOT=%{buildroot}
 
-install -d -m755 %buildroot/%_datadir/applications/
-install -m644 %name.desktop %buildroot/%_datadir/applications/%name.desktop
+%__mkdir_p %{buildroot}%{_datadir}/applications/
+%__install -m644 %{name}.desktop %{buildroot}%{_datadir}/applications/%{name}.desktop
 
-install -d -m755 %buildroot/%_liconsdir
-install -m644 images/item4.png %buildroot/%_liconsdir/%name.png
+%__mkdir_p %{buildroot}%{_liconsdir}
+%__install -m644 images/item4.png %{buildroot}%{_liconsdir}/%{name}.png
 
 %clean
-rm -rf %buildroot
+%__rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root)
-%_bindir/%name
-%_datadir/applications/%name.desktop
-%_liconsdir/%name.png
-%_datadir/%name/
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/%{name}
+%{_datadir}/applications/%{name}.desktop
+%{_liconsdir}/%{name}.png
+%{_datadir}/%{name}
 
