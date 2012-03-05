@@ -13,6 +13,8 @@ Source1:	http://jag.xlabsoft.com/files/%{name}-%{version}-data.zip
 # not sent upstream, too ugly
 Patch0:		jag-0.3.2-path.patch
 
+Patch1:		jag-0.3.2-dso.patch
+
 BuildRequires:	gcc-c++
 BuildRequires:	libmesagl-devel
 BuildRequires:	SDL-devel
@@ -42,8 +44,11 @@ collect 500 and more items, you can remove all the same items from the field.
 %prep
 %setup -q -n %{name}-%{version}-src -a1
 %patch0 -p1
+%patch1 -p1
 %__mv %{name}-%{version}-data/data .
 %__rm -rf %{name}-%{version}-data
+find . -type f -exec %__chmod 644 {} \;
+find . -type d -exec %__chmod 755 {} \;
 
 %build
 %qmake_qt4 Game.pro
