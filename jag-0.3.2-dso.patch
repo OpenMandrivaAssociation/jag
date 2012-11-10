@@ -1,0 +1,13 @@
+diff -urN jag-0.3.2-src/Game.pro jag-0.3.2-src-patched/Game.pro
+--- jag-0.3.2-src/Game.pro	2012-03-03 09:50:16.000000000 +1100
++++ jag-0.3.2-src-patched/Game.pro	2012-03-06 10:49:43.351779763 +1100
+@@ -24,7 +24,8 @@
+ }
+ LIBS += -lSDLmain \
+     -lSDL \
+-    -lSDL_mixer
++    -lSDL_mixer\
++    -lX11
+ TEMPLATE = app
+ SOURCES += main.cpp \
+     gamewidget.cpp \

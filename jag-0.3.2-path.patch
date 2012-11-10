@@ -1,0 +1,27 @@
+diff -urN jag-0.3.2-src/Game.pro jag-0.3.2-src-patched/Game.pro
+--- jag-0.3.2-src/Game.pro	2012-03-03 09:50:16.000000000 +1100
++++ jag-0.3.2-src-patched/Game.pro	2012-03-06 04:57:54.285836569 +1100
+@@ -5,9 +5,9 @@
+     opengl
+ unix: {
+     TARGET = ./bin/jag
+-    target.path = /usr/local/bin/
++    target.path = /usr/bin/
+     INSTALLS += target
+-    datas.path = /usr/local/games/jag
++    datas.path = /usr/share/jag
+     datas.files = data
+     INSTALLS += datas
+     LIBS += -lXrandr
+diff -urN jag-0.3.2-src/main.cpp jag-0.3.2-src-patched/main.cpp
+--- jag-0.3.2-src/main.cpp	2012-03-04 02:19:11.000000000 +1100
++++ jag-0.3.2-src-patched/main.cpp	2012-03-06 04:57:01.497897447 +1100
+@@ -37,7 +37,7 @@
+   // on X11, we'll check if data directory exists locally first
+ #ifdef Q_WS_X11
+   if (!QDir(resourcePath).exists())
+-    resourcePath = "/usr/local/games/jag/data/";
++    resourcePath = "/usr/share/jag/data/";
+ #endif
+ 
+   if (!QDir(resourcePath).exists()) {
