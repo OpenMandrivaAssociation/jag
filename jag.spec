@@ -87,3 +87,38 @@ EOF
 %{_liconsdir}/%{name}.png
 %{_datadir}/%{name}
 
+
+
+%changelog
+* Tue Mar 06 2012 Andrey Bondrov <abondrov@mandriva.org> 0.3.2-1mdv2011.0
++ Revision: 782318
+- Add patch for DSO issues in Cooker
+- New version 0.3.2
+
+* Mon Dec 06 2010 Oden Eriksson <oeriksson@mandriva.com> 0.3.1-2mdv2011.0
++ Revision: 612437
+- the mass rebuild of 2010.1 packages
+
+* Thu Feb 25 2010 Michael Scherer <misc@mandriva.org> 0.3.1-1mdv2010.1
++ Revision: 511258
+- comment patch to explain why it is not sent upstream
+- fix License tag
+- adapt and clean rpm from MIB
+
+
+* Sat Feb 13 2010 Andrey Bondrov <bondrov@math.dvgu.ru> 0.3.1-69.1mib2009.1
+- New version 0.3.1
+- Clean up and fix spec
+- Add patch0 to fix path from usr/local to usr
+- MIB (Mandriva Italia Backport) - http://mib.pianetalinux.org
+
+* Thu Oct 15 2009 Beppe Florin <symbianflo@fastwebnet.it>  0.2.6-69.1mib2009.1
+- New release
+- MIB (Mandriva Italia Backport) - http://mib.pianetalinux.org
+
+* Sun Aug 09 2009 Alberto Altieri <alberto.altieri@gmail.com> 0.2.5-69.1mib2009.1
+- First version/release for MIB users
+- MIB (Mandriva Italia Backport) new optimized
+
+* Sun Jul 12 2009 Fr. Br. George <george@altlinux.ru> 0.2.3-alt1
+- Initial build from scratch
