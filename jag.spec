@@ -1,7 +1,7 @@
 Summary:	An arcade-puzzle 2D game to break all of the target blocks
 Name:		jag
 Version:	0.3.2
-Release:	2
+Release:	3
 # README say "under the GPL" so that quite vague
 License:	GPLv2+
 Group:		Games/Puzzles
