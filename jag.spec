@@ -5,7 +5,7 @@ Release:	3
 # README say "under the GPL" so that quite vague
 License:	GPLv2+
 Group:		Games/Puzzles
-Url:		http://jag.xlabsoft.com
+Url:		https://jag.xlabsoft.com
 Source0:	http://jag.xlabsoft.com/files/%{name}-%{version}-src.zip
 Source1:	http://jag.xlabsoft.com/files/%{name}-%{version}-data.zip
 # adujst path to conform to FHS
