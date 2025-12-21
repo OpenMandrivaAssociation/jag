@@ -12,6 +12,7 @@ Source1:	http://jag.xlabsoft.com/files/%{name}-%{version}-data.zip
 # not sent upstream, too ugly
 Patch0:		jag-0.3.2-path.patch
 Patch1:		jag-0.3.2-dso.patch
+BuildRequires:	make
 BuildRequires:	unzip
 BuildRequires:	qt4-devel
 BuildRequires:	pkgconfig(gl)
